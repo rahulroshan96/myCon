@@ -1,14 +1,23 @@
 
 
 
-downloadPhoto('http://coolcats.com/cat.gif', handlePhoto)
+// downloadPhoto('http://coolcats.com/cat.gif', handlePhoto)
 
-function handlePhoto (error, photo) {
-  if (error) console.error('Download error!', error)
-  else console.log('Download finished', photo)
+// function handlePhoto (error, photo) {
+//   if (error) console.error('Download error!', error)
+//   else console.log('Download finished', photo)
+// }
+
+// console.log('Download started')
+
+function test(cb){
+	cb(10);
 }
 
-console.log('Download started')
+test(function cb(y){
+	console.log(y);
+});
+
 
 
 /*
@@ -25,3 +34,47 @@ This example is meant to illustrate two important concepts:
 The handlePhoto callback is just a way to store some things to do at a later time
 The order in which things happen does not read top-to-bottom, it jumps around based on when things complete
 */
+
+
+// Two ways to call&define a callback 
+// Method 1:
+function test(cb) {
+    var x = "rahul";
+    cb(x);
+}
+
+test(function cb(input){
+   if(input === "rahul")
+       console.log("success");
+    else
+        console.log("failure");
+});
+
+//Method 2:
+
+function test(input1) {
+    function fun(input1, cb) {
+        var x;
+        if(input1 === "rahul")
+        {
+            //console.log("success");
+            x = "success";
+        }
+        else
+        {
+            //console.log("failure");
+            x = "failure";
+        }
+        cb(x); // do something with this input
+    }
+    fun(input1,cb);
+}
+
+function cb(input1) {
+    console.log("This is result: "+ input1);
+}
+
+test("rahul");
+
+
+
