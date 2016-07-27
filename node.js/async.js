@@ -1,3 +1,13 @@
+/*
+For real examples:
+
+http://www.intstrings.com/ramivemula/articles/node-js-async-module-waterfall-and-series/
+
+http://www.hacksparrow.com/node-js-async-programming.html
+
+*/
+
+
 var async = require('async');
 var MongoClient = require('mongodb').MongoClient;
 //var format = require('util').format;
